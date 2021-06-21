@@ -23,6 +23,7 @@ The **cache** package provides a simple interface to caching which works across 
 library(cache)
 
 cache(myComputation = {Sys.sleep(3); "Hello World"})
+
 print(myComputation)
 ```
 
@@ -32,6 +33,7 @@ It takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`. H
 system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
+
 print(myComputation)
 ```
 

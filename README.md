@@ -17,6 +17,7 @@ The **cache** package provides a simple interface to caching which works across 
 library(cache)
 
 cache(myComputation = {Sys.sleep(3); "Hello World"})
+
 print(myComputation)
 #> [1] "Hello World"
 ```
@@ -29,7 +30,8 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.002   0.000   0.002
+#>   0.001   0.001   0.003
+
 print(myComputation)
 #> [1] "Hello World"
 ```
