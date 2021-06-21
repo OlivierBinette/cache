@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **cache**: easily cache and retrieve computation results
+# :recycle: **cache**: easily cache and retrieve computation results
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)

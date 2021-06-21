@@ -6,7 +6,7 @@ output: github_document
 
 
 
-# **cache**: easily cache and retrieve computation results
+# :recycle: **cache**: easily cache and retrieve computation results
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -33,7 +33,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.001   0.000   0.002
 print(myComputation)
 #> [1] "Hello World"
 ```
