@@ -4,7 +4,14 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # **cache**: Easily Cache and Retrieve Computations
 
@@ -15,24 +22,18 @@ output: github_document
 
 The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmd documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
 
-
-```r
+```{r}
 library(cache)
 
 cache(myComputation = {Sys.sleep(3); "Hello World"})
 print(myComputation)
-#> [1] "Hello World"
 ```
 
 It takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`. However, the cached result can be instantly retrieved using `cache()`:
 
-
-```r
+```{r}
 system.time(cache(myComputation = {Sys.sleep(3); "Hello World"}))
-#>    user  system elapsed 
-#>   0.001   0.000   0.002
 print(myComputation)
-#> [1] "Hello World"
 ```
 
 In contrast with the built-in cache functionality of knitr and Rmd documents, the **cache** package can be used seamlessly across your interactive session and Rmd knitting.
