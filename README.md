@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
@@ -33,7 +29,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.000   0.002
+#>   0.002   0.000   0.002
 print(myComputation)
 #> [1] "Hello World"
 ```
