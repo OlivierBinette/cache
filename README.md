@@ -40,7 +40,7 @@ print(myComputation)
 #> [1] "Hello World"
 ```
 
-While i,t takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`, the previously cached result can be instantly retrieved using the same function call:
+While it takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`, the previously cached result can be instantly retrieved using the same function call:
 
 
 ```r
