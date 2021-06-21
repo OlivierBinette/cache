@@ -7,3 +7,4 @@
 ^.cache-R$
 ^NEWS\.md$
 ^cran-comments\.md$
+^CRAN-RELEASE$

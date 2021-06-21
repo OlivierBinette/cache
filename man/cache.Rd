@@ -4,12 +4,14 @@
 \alias{cache}
 \title{Cache or Retrieve Computation Results}
 \usage{
-cache(..., .cachedir = file.path(here("."), ".cache-R"))
+cache(..., .cachedir = file.path(here("."), ".cache-R"), .rerun = FALSE)
 }
 \arguments{
 \item{...}{Named expressions to be cached or retrieved.}
 
 \item{.cachedir}{Directory where cache files are stored.}
+
+\item{.rerun}{Whether or not to clear the cache and re-run the provided expressions. Defaults to FALSE.}
 }
 \description{
 Cache or retrieve an evaluated expression. Results are always made available in the current environment.
@@ -18,12 +20,15 @@ Cache or retrieve an evaluated expression. Results are always made available in 
 tmp = tempdir()
 
 # Takes 1 second to execute
-cache(a = {Sys.sleep(2); "Hello World"}, .cachedir = tmp) 
+cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp) 
 
 # Executes instantly
-cache(a = {Sys.sleep(2); 1}, .cachedir = tmp)
+cache(a = {Sys.sleep(1); 1}, .cachedir = tmp)
 
 # Result is available in the current environment
 print(a)
+
+# Re-run the expression
+cache(a = {Sys.sleep(1); 1}, .cachedir = tmp, .rerun = TRUE)
 
 }
