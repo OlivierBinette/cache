@@ -6,7 +6,7 @@ output: github_document
 
 
 
-# **cache**: Easily Cache and Retrieve Computations
+# **cache**: easily cache and retrieve computation results
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -25,11 +25,13 @@ print(myComputation)
 #> [1] "Hello World"
 ```
 
-It takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`. However, the cached result can be instantly retrieved using `cache()`:
+It takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`. However, the previously cached result can be instantly retrieved using the same function call:
 
 
 ```r
-system.time(cache(myComputation = {Sys.sleep(3); "Hello World"}))
+system.time(
+  cache(myComputation = {Sys.sleep(3); "Hello World"})
+)
 #>    user  system elapsed 
 #>   0.001   0.000   0.001
 print(myComputation)
