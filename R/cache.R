@@ -1,5 +1,5 @@
 
-#' Cache or Retrieve Computation Result
+#' Cache or Retrieve Computation Results
 #' 
 #' Cache or retrieve an evaluated expression. Results are always made available in the current environment.
 #' 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cache.R
 \name{cache}
 \alias{cache}
-\title{Cache or Retrieve Computation Result}
+\title{Cache or Retrieve Computation Results}
 \usage{
 cache(..., .cachedir = file.path(here("."), ".cache-R"))
 }

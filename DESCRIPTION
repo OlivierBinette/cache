@@ -1,13 +1,12 @@
 Package: cache
 Title: Cache and Retrieve Computation Results
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Olivier",
            family = "Binette",
            role = c("aut", "cre"),
-           email = "olivier.binette@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Easily cache and retrieve computation results. The package works seamlessly across interactive R sessions, R scripts and Rmd documents.
+           email = "olivier.binette@gmail.com")
+Description: Easily cache and retrieve computation results. The package works seamlessly across interactive R sessions, R scripts and Rmarkdown documents.
 License: MIT + file LICENSE
 Imports: digest, assert, cli, here
 Encoding: UTF-8

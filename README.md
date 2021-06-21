@@ -10,7 +10,7 @@
 [![R-CMD-check](https://github.com/OlivierBinette/cache/workflows/R-CMD-check/badge.svg)](https://github.com/OlivierBinette/cache/actions)
 <!-- badges: end -->
 
-The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmd documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
+The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
 
 
 ```r
@@ -30,13 +30,13 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.001   0.003
+#>   0.021   0.001   0.025
 
 print(myComputation)
 #> [1] "Hello World"
 ```
 
-In contrast with the built-in cache functionality of knitr and Rmd documents, the **cache** package can be used seamlessly across your interactive session and Rmd knitting.
+In contrast with the built-in cache functionality of knitr and Rmarkdown documents, the **cache** package can be used seamlessly across your interactive session and Rmarkdown knitting.
 
 By default, the cache directory is located under a `./cache-R` folder created at the root of your project directory. This folder is located using the `here::here()` function to ensure that all project files and documents can locate it as needed.
 
