@@ -11,6 +11,7 @@ output: github_document
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/cache)](https://CRAN.R-project.org/package=cache)
+[![R-CMD-check](https://github.com/OlivierBinette/cache/workflows/R-CMD-check/badge.svg)](https://github.com/OlivierBinette/cache/actions)
 <!-- badges: end -->
 
 The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmd documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
@@ -30,7 +31,7 @@ It takes 3 seconds to evaluate the expression `{Sys.sleep(3); "Hello World"}`. H
 ```r
 system.time(cache(myComputation = {Sys.sleep(3); "Hello World"}))
 #>    user  system elapsed 
-#>   0.001   0.000   0.002
+#>   0.001   0.000   0.001
 print(myComputation)
 #> [1] "Hello World"
 ```

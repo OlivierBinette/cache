@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/cache)](https://CRAN.R-project.org/package=cache)
+[![R-CMD-check](https://github.com/OlivierBinette/cache/workflows/R-CMD-check/badge.svg)](https://github.com/OlivierBinette/cache/actions)
 <!-- badges: end -->
 
 The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmd documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
