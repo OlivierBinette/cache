@@ -95,7 +95,7 @@ cache(.rerun=TRUE,
 
 ### Load cached objects
 
-Cached objects can also be load directly using the `cache_load()` function:
+Cached objects can also be loaded directly using the `cache_load()` function:
 
 
 ```r
