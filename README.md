@@ -63,7 +63,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.001   0.001   0.001
 
 print(myComputation)
 #> [1] "Hello World"
@@ -113,3 +113,7 @@ cache_load("myComputation")
 By default, the cache directory is located under a `./cache-R` folder created at the root of your project directory. This folder is located using the `here::here()` function to ensure that all project files and documents can locate it as needed.
 
 To clear the cache and rerun all expressions, either delete the `.cache-R` folder or supply the argument `.rerun = FALSE` to the `cache()` function calls.
+
+## References
+
+- Cook, J. (2020) Caching in R. https://www.r-bloggers.com/2020/04/caching-in-r/
