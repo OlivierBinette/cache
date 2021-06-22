@@ -68,9 +68,9 @@ cache <- function(..., .cachedir = here(".cache-R"), .rerun = FALSE) {
 
 #' Load cached objects from cache directory
 #'
-#' @usage load_cache(objects = NULL, .cachedir = here(".cache-R"))
+#' @usage cache_load(objnames = "*", .cachedir = here(".cache-R"))
 #'
-#' @param objects character list of object names to load.
+#' @param objnames character list of object names to load.
 #' @param .cachedir path to cache directory. Defaults to the directory named `.cache-R` at the project root.
 #'
 #' @importFrom here here

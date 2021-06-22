@@ -4,12 +4,12 @@
 \alias{cache_load}
 \title{Load cached objects from cache directory}
 \usage{
-load_cache(objects = NULL, .cachedir = here(".cache-R"))
+cache_load(objnames = "*", .cachedir = here(".cache-R"))
 }
 \arguments{
-\item{.cachedir}{path to cache directory. Defaults to the directory named \code{.cache-R} at the project root.}
+\item{objnames}{character list of object names to load.}
 
-\item{objects}{character list of object names to load.}
+\item{.cachedir}{path to cache directory. Defaults to the directory named \code{.cache-R} at the project root.}
 }
 \description{
 Load cached objects from cache directory
