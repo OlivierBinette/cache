@@ -84,7 +84,7 @@ Use the `.rerun` argument to clear cache and rerun expressions:
 
 ```{r}
 cache(.rerun=TRUE,
-  myComputation = {Sys.sleep(3); "Hello World"
+  myComputation = {Sys.sleep(3); "Hello World"}
 )
 ```
 

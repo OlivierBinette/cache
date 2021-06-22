@@ -63,7 +63,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.020   0.002   0.025
+#>   0.001   0.000   0.001
 
 print(myComputation)
 #> [1] "Hello World"
@@ -89,12 +89,8 @@ Use the `.rerun` argument to clear cache and rerun expressions:
 
 ```r
 cache(.rerun=TRUE,
-  myComputation = {Sys.sleep(3); "Hello World"
+  myComputation = {Sys.sleep(3); "Hello World"}
 )
-#> Error: <text>:3:1: ')' inattendu(e)
-#> 2:   myComputation = {Sys.sleep(3); "Hello World"
-#> 3: )
-#>    ^
 ```
 
 ### Load cached objects
