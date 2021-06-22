@@ -63,7 +63,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.001   0.001
+#>   0.001   0.000   0.002
 
 print(myComputation)
 #> [1] "Hello World"
@@ -73,7 +73,7 @@ This is especially useful as part of a reproducible analysis workflow or as part
 
 ### Specify cache directory
 
-No two objects of the same name can be placed in the same cache directory. Analysis-specific cache directory should therefore be used when conflicts are expected. We recommend using the `here()` function to specify cache file paths relatively to the project root:
+No two objects of the same name can be placed in the same cache directory. Analysis-specific cache directory should therefore be used when conflicts are expected. We recommend using the `here()` function from the [**here**](https://github.com/r-lib/here#here) package to specify cache file paths relatively to the project root:
 
 
 ```r
