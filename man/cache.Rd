@@ -4,12 +4,12 @@
 \alias{cache}
 \title{Cache or Retrieve Computation Results}
 \usage{
-cache(..., .cachedir = file.path(here("."), ".cache-R"), .rerun = FALSE)
+cache(..., .cachedir = here(".cache-R"), .rerun = FALSE)
 }
 \arguments{
 \item{...}{Named expressions to be cached or retrieved.}
 
-\item{.cachedir}{Directory where cache files are stored.}
+\item{.cachedir}{Directory where cache files are stored. Default is a directory called \code{.cache-R} located at the project root.}
 
 \item{.rerun}{Whether or not to clear the cache and re-run the provided expressions. Defaults to FALSE.}
 }
@@ -17,18 +17,26 @@ cache(..., .cachedir = file.path(here("."), ".cache-R"), .rerun = FALSE)
 Cache or retrieve an evaluated expression. Results are always made available in the current environment.
 }
 \examples{
-tmp = tempdir()
+tmp <- tempdir()
 
 # Takes 1 second to execute
-cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp) 
+cache(a = {
+  Sys.sleep(1)
+  "Hello World"
+}, .cachedir = tmp)
 
 # Executes instantly
-cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp)
+cache(a = {
+  Sys.sleep(1)
+  "Hello World"
+}, .cachedir = tmp)
 
 # Result is available in the current environment
 print(a)
 
 # Re-run the expression
-cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp, .rerun = TRUE)
-
+cache(a = {
+  Sys.sleep(1)
+  "Hello World"
+}, .cachedir = tmp, .rerun = TRUE)
 }

@@ -31,6 +31,8 @@ devtools::install_github("OlivierBinette/cache")
 
 ## Examples
 
+### Overview
+
 Wrap any R expression using the `cache()` function to cache the result:
 
 
@@ -56,13 +58,39 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.002   0.001   0.002
+#>   0.001   0.000   0.002
 
 print(myComputation)
 #> [1] "Hello World"
 ```
 
 This is especially useful as part of a reproducible analysis workflow or as part of an Rmarkdown document. However, in constrast with the cache functionality of the `rmarkdown` package, the **cache** package can be used seamlessly across interactive sessions, reproducible analyses and Rmarkdown knitting.
+
+### Load cached objects
+
+Cached objects can also be load directly using the `cache_load()` function:
+
+
+```r
+# Load all cached objects from the `.cache-R` directory
+cache_load()
+#> ℹ Reading the following objects from cache:  myComputation
+
+# Load specific object
+cache_load("myComputation")
+#> ℹ Reading the following objects from cache:  myComputation
+```
+
+### Specify cache directory
+
+No two objects of the same name can be placed in the same cache directory. Analysis-specific cache directory should therefore be used when conflicts are expected. We recommend using the `here()` function to specify cache file paths relatively to the project root:
+
+
+```r
+cache(.cachedir = here::here(".cache-R/cars-analysis"),
+  result = lm(cars)
+)
+```
 
 ## Notes
 
