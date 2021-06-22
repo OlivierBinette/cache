@@ -10,7 +10,12 @@
 [![R-CMD-check](https://github.com/OlivierBinette/cache/workflows/R-CMD-check/badge.svg)](https://github.com/OlivierBinette/cache/actions)
 <!-- badges: end -->
 
-The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results.
+The **cache** package provides a simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents. Simply wrap your R expressions with the `cache()` function to cache or retrieve the results:
+
+
+```r
+cache(resultOf = longComputation())
+```
 
 ## Installation
 
@@ -58,13 +63,39 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.000   0.002
+#>   0.020   0.002   0.025
 
 print(myComputation)
 #> [1] "Hello World"
 ```
 
 This is especially useful as part of a reproducible analysis workflow or as part of an Rmarkdown document. However, in constrast with the cache functionality of the `rmarkdown` package, the **cache** package can be used seamlessly across interactive sessions, reproducible analyses and Rmarkdown knitting.
+
+### Specify cache directory
+
+No two objects of the same name can be placed in the same cache directory. Analysis-specific cache directory should therefore be used when conflicts are expected. We recommend using the `here()` function to specify cache file paths relatively to the project root:
+
+
+```r
+cache(.cachedir = here::here(".cache-R/cars-analysis"),
+  result = lm(cars)
+)
+```
+
+### Clear cache and re-run expressions
+
+Use the `.rerun` argument to clear cache and rerun expressions:
+
+
+```r
+cache(.rerun=TRUE,
+  myComputation = {Sys.sleep(3); "Hello World"
+)
+#> Error: <text>:3:1: ')' inattendu(e)
+#> 2:   myComputation = {Sys.sleep(3); "Hello World"
+#> 3: )
+#>    ^
+```
 
 ### Load cached objects
 
@@ -79,17 +110,6 @@ cache_load()
 # Load specific object
 cache_load("myComputation")
 #> ℹ Reading the following objects from cache:  myComputation
-```
-
-### Specify cache directory
-
-No two objects of the same name can be placed in the same cache directory. Analysis-specific cache directory should therefore be used when conflicts are expected. We recommend using the `here()` function to specify cache file paths relatively to the project root:
-
-
-```r
-cache(.cachedir = here::here(".cache-R/cars-analysis"),
-  result = lm(cars)
-)
 ```
 
 ## Notes
