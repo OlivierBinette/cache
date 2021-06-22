@@ -5,7 +5,7 @@
 # :recycle: **cache**: easily cache and retrieve computation results
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/cache)](https://CRAN.R-project.org/package=cache)
 [![R-CMD-check](https://github.com/OlivierBinette/cache/workflows/R-CMD-check/badge.svg)](https://github.com/OlivierBinette/cache/actions)
 <!-- badges: end -->
@@ -14,9 +14,17 @@ The **cache** package provides a simple interface to caching which works across 
 
 ## Installation
 
-You can install the the development version from [GitHub](https://github.com/) with:
+You can install the released version of **cache** from CRAN with:
 
-``` r
+
+```r
+install.packages("cache")
+```
+
+and the development version from [GitHub](https://github.com/) with:
+
+
+```r
 if (!require(devtools)) install.packages("devtools")
 devtools::install_github("OlivierBinette/cache")
 ```
@@ -48,7 +56,7 @@ system.time(
   cache(myComputation = {Sys.sleep(3); "Hello World"})
 )
 #>    user  system elapsed 
-#>   0.001   0.000   0.002
+#>   0.002   0.001   0.002
 
 print(myComputation)
 #> [1] "Hello World"

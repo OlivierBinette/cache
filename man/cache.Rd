@@ -23,12 +23,12 @@ tmp = tempdir()
 cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp) 
 
 # Executes instantly
-cache(a = {Sys.sleep(1); 1}, .cachedir = tmp)
+cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp)
 
 # Result is available in the current environment
 print(a)
 
 # Re-run the expression
-cache(a = {Sys.sleep(1); 1}, .cachedir = tmp, .rerun = TRUE)
+cache(a = {Sys.sleep(1); "Hello World"}, .cachedir = tmp, .rerun = TRUE)
 
 }
