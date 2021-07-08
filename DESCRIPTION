@@ -7,6 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "olivier.binette@gmail.com")
 Description: Easily cache and retrieve computation results. The package works seamlessly across interactive R sessions, R scripts and Rmarkdown documents.
+URL: https://github.com/OlivierBinette/cache
+BugReports: https://github.com/OlivierBinette/cache/issues
 License: MIT + file LICENSE
 Imports: digest, assert, cli, here
 Encoding: UTF-8
