@@ -9,8 +9,4 @@
 
 # R CMD check results
 
-0 ERROR | 0 WARNING | 1 NOTE
-
-- NOTE
-    Maintainer: 'Olivier Binette <olivier.binette@gmail.com>'
-    New submission
+0 ERROR | 0 WARNING | 0 NOTE
