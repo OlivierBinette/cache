@@ -1,3 +1,7 @@
+# cache 0.03
+
+- Change hash delimiter.
+
 # cache 0.02
 
 - Fix typos and other small improvements.

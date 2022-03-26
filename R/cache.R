@@ -50,13 +50,13 @@ cache <- function(..., .cachedir = here(".cache-R"), .rerun = FALSE) {
   args <- args[names(args) != ".cachedir"]
   objnames <- names(args)
   hashcodes <- sapply(args, digest, algo = "md5")
-  cachefiles <- file.path(.cachedir, paste0(objnames, "_", hashcodes, ".rds"))
+  cachefiles <- file.path(.cachedir, paste0(objnames, "_@_", hashcodes, ".rds"))
 
   rerun <- !file.exists(cachefiles)
 
   for (i in seq_along(args)) {
     if (any(rerun[[i]], .rerun)) {
-      file.remove(list.files(path = .cachedir, pattern = paste0("^", objnames[[i]], "_[[:alnum:]]+.rds"), full.names = TRUE))
+      file.remove(list.files(path = .cachedir, pattern = paste0("^", objnames[[i]], "_@_[[:alnum:]]+.rds"), full.names = TRUE))
 
       saveRDS(...elt(i), file = cachefiles[[i]])
     }
@@ -80,12 +80,12 @@ cache_load <- function(objnames = "*", .cachedir = here(".cache-R")) {
   assert(dir.exists(.cachedir))
 
   files <- sapply(objnames, function(name) {
-    list.files(path = .cachedir, pattern = paste0(name, "_[[:alnum:]]+.rds"), full.names = TRUE)
+    list.files(path = .cachedir, pattern = paste0(name, "_@_[[:alnum:]]+.rds"), full.names = TRUE)
   })
 
   found <- sapply(files, function(f) !identical(f, character(0)))
   foundnames <- tools::file_path_sans_ext(basename(as.character(files[found])))
-  foundnames <- sub("_.*", "", foundnames)
+  foundnames <- sub("_@_.*", "", foundnames)
 
   if (any(found)) {
     cli::cli_alert_info(paste(c("Reading the following objects from cache: ", foundnames), collapse = " "))
