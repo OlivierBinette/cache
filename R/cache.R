@@ -47,7 +47,6 @@ cache <- function(..., .cachedir = here(".cache-R"), .rerun = FALSE) {
     msg = "All arguments must be named."
   )
 
-  args <- args[names(args) != ".cachedir"]
   objnames <- names(args)
   hashcodes <- sapply(args, digest, algo = "md5")
   cachefiles <- file.path(.cachedir, paste0(objnames, "_@_", hashcodes, ".rds"))
