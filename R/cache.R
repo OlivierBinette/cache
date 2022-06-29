@@ -47,7 +47,6 @@ cache <- function(..., .cachedir = here(".cache-R"), .rerun = FALSE) {
     msg = "All arguments must be named."
   )
 
-  args <- args[names(args) != ".cachedir"]
   objnames <- names(args)
   hashcodes <- sapply(args, digest, algo = "md5")
   cachefiles <- file.path(.cachedir, paste0(objnames, "_@_", hashcodes, ".rds"))
@@ -63,6 +62,8 @@ cache <- function(..., .cachedir = here(".cache-R"), .rerun = FALSE) {
 
     assign(objnames[[i]], readRDS(cachefiles[[i]]), envir = parent.frame())
   }
+  
+  invisible(cachefiles)
 }
 
 
@@ -94,9 +95,11 @@ cache_load <- function(objnames = "*", .cachedir = here(".cache-R")) {
     cli::cli_alert_warning(paste(c("The following objects were not found: ", objnames[!found]), collapse = " "))
   }
 
-  for (i in seq_along(objnames)) {
+  for (i in seq_along(foundnames)) {
     if (found[[i]]) {
-      assign(objnames[[i]], readRDS(files[[i]]), envir = parent.frame())
+      assign(foundnames[[i]], readRDS(files[[i]]), envir = parent.frame())
     }
   }
+  
+  invisible(files)
 }
